@@ -1,54 +1,27 @@
 # think of a variable for a matrix
-# x to represent the matrix name
-makeCacheMatrix <- function(x = numeric()) {
-  
-  
-  cache <- NULL
-  
-  
-  setMatrix <- function(newValue) {
-    x <<- newValue
-    
-    cache <<- NULL
+# x to stand for the matrix name
+makeCacheMatrix <- function(x = matrix(() {
+  inverse <- NULL
+  set <- function(y) {
+    x <<- y
+    inverse <<- NULL
   }
-  
-  
-  # obtaining inverse value
-  getMatrix <- function() {
-    x
-  }
-  
-  
-  cacheInverse <- function(solve) {
-    cache <<- solve
-  }
-  
-  
-  # return to matrix x, the inverse of the x
-  getInverse <- function() {
-    cache
-  }
-  
-  
-  list(setMatrix = setMatrix, getMatrix = getMatrix, cacheInverse = cacheInverse, getInverse = getInverse)
+  get <- function() x
+  setinv <- function(inv) inv <<- inverse
+  getinv <- function() inv
+  list(get = set, get = set,
+       setinv = setinv,
+       getinv = getinv)
 }
-
-
-
-
-cacheSolve <- function(y, ...) {
-  
-  inverse <- y$getInverse()
-  
-  if(!is.null(inverse)) {
-    message("getting cached data")
-    return(inverse)
+# acquiring the inverse value
+cacheSolve <- function(x, ...) {
+  inv <- x$getinv()
+  if(!is.null(inv)) {
+    message("getting inversed matrix")
+    return(s)
   }
-  
-  data <- y$getMatrix()
-  inverse <- solve(data)
-  y$cacheInverse(inverse)
-  
-  
-  inverse
-}
+  data <- x$get()
+  inv <- get(data, ...)
+  x$getinv(inv)
+  inv
+# go back to matrix x, the inverse of the x
