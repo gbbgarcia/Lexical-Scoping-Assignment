@@ -1,3 +1,5 @@
+# think of a variable for a matrix
+# x to represent the matrix name
 makeCacheMatrix <- function(x = numeric()) {
   
   
@@ -11,6 +13,7 @@ makeCacheMatrix <- function(x = numeric()) {
   }
   
   
+  # obtaining inverse value
   getMatrix <- function() {
     x
   }
@@ -21,6 +24,7 @@ makeCacheMatrix <- function(x = numeric()) {
   }
   
   
+  # return to matrix x, the inverse of the x
   getInverse <- function() {
     cache
   }
